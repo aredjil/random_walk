@@ -1,0 +1,15 @@
+#include <SFML/Graphics.hpp>
+#include <iostream>
+
+/*
+This code contains a simple simulation of a random walker using SFML 
+*/
+
+int main()
+{
+    const int width{500};
+    const int height{width};
+    // We start first by creating a window 
+    sf::RenderWindow window(sf::VideoMode(width, height))
+    return 0;
+}

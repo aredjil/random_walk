@@ -1,0 +1,61 @@
+#include <SFML/Graphics.hpp>
+#include <iostream>
+#include<random>
+/*
+This code contains a simple simulation of a random walker using SFML 
+*/
+
+// random number generator 
+std::random_device dv;
+std::mt19937 gen(dv());
+
+inline float get_direction()
+{
+    std::uniform_int_distribution<int> dist(0, 1);
+    int next = dist(gen);
+    return (float)next;
+}
+int main()
+{
+    const int width{500};
+    const int height{width};
+    // We start first by creating a window 
+    sf::RenderWindow window(sf::VideoMode(width, height), "2 D random Walk", sf::Style::Default);
+
+    // Creating the random walker as a circle in the center of the screen 
+    sf::CircleShape random_walker(10.0f);
+    random_walker.setPosition(sf::Vector2f(width /2.0f, height/2.0f));
+    // random_walker.setOrigin(sf::Vector2f(width /2.0f, height/2.0f));
+    // Now we start the scene loop
+    while(window.isOpen())
+
+    {   sf::Event event; 
+        // Closing the window logic 
+        while(window.pollEvent(event))
+        {
+            switch (event.type)
+            {
+            case sf::Event::Closed:
+                window.close();
+                break;
+            
+            default:
+                break;
+            }
+        }
+        // Get one of the 4 states 
+        // 0 up, 1 right, 2 down, 3 left 
+
+
+
+
+        // Clearing the window after every frame 
+        window.clear(sf::Color::Black);
+        // Displaying the random walker on the screen 
+        window.draw(random_walker);
+        window.display();
+
+
+    }
+    return 0;
+}
