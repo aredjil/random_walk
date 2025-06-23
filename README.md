@@ -9,16 +9,18 @@ This code contains a simple 2D lattice random walk. An element starts at the cen
 To compile the code you will need [`SFML`](https://www.sfml-dev.org/download/). Use the following command. 
 
 ```bash 
-user@laptop:~$ g++ main.cpp -lsfml-graphics -lsfml-window -lsfml-system -o main.x 
+user@laptop:~$ cmake -S . -B build 
+user@laptop:~$ cmake --build build   
+
 ```
 
 Then simply run the code 
 ```bash
-user@laptop:~$ ./main.x
+user@laptop:~$ ./build/main.x
 ```
 
 A window will pop up with the simulation running. 
 
 ![](./screenshot_5218.png)
 
-If you want you can take a screenshot of the simulation at that time step by pressing the key *S* on the keyboard
+If you want you can take a screenshot of the simulation at that time step by pressing the key *S* on the keyboard.  
